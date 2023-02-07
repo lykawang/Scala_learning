@@ -1,6 +1,12 @@
 --- Basic Syntax ---
 
-def main(args: Array[String])
+Compile and execute a Scala program
+> scalac HelloWorld.scala
+> scala HelloWorld
+The "scalac" command is used to complie the Scala program and it will generate a few class files in the current directory
+The 'scala' command is used to run the .class on Java Virtual Machine
+
+> def main(args: Array[String])
 Scala program processing starts from the main() method which is a mandatory part of every Scala Program.
 
 Comments in Scala
@@ -35,4 +41,76 @@ Local variables can be defined using either var or val
 
 
 
+--- Classes & Objects ---
 
+Basic class with NEW keyword
+> import java.io._
+> class Point(val xc: Int, val yc: Int) {
+>    var x: Int = xc
+>    var y: Int = yc  
+>
+>    def move(dx: Int, dy: Int) {
+>       x = x + dx
+>       y = y + dy
+>       println ("Point x location : " + x);
+>       println ("Point y location : " + y);
+>    }
+> }
+> object Demo {
+>    def main(args: Array[String]) {
+>       val pt = new Point(10, 20);
+>       pt.move(10, 10); // Move to a new location
+>    }
+> }
+
+Extending a Class
+Method overriding requires the override keyword
+Only the primary constructor can pass parameters to the base constructor
+> class Location(override val xc: Int, override val yc: Int, val zc :Int) extends Point(xc, yc){
+>    var z: Int = zc
+> 
+>    def move(dx: Int, dy: Int, dz: Int) {
+>       x = x + dx
+>       y = y + dy
+>       z = z + dz
+>       println ("Point x location : " + x);
+>       println ("Point y location : " + y);
+>       println ("Point z location : " + z);
+>    }
+> }
+In this case, Point class is called superclass and the Location class is called subclass
+Extending a class and inheriting all the features of a parent class is called inheritance, but Scala allows the inheritance from just one class only.
+
+Implicit Classes
+Implicit classes allow implicit conversations with class’s primary constructor when the class is in scope.
+Syntax:
+> object <object name> {
+>    implicit class <class name>(<Variable>: Data type) {
+>       def <method>(): Unit =
+>    }
+> }
+Example:
+> object Run {
+>    implicit class IntTimes(x: Int) {
+>       def times [A](f: =>A): Unit = {
+>          def loop(current: Int): Unit =
+>          
+>          if(current > 0){
+>             f
+>             loop(current - 1)
+>          }
+>          loop(x)
+>       }
+>    }
+> }
+> import Run._
+> object Demo {
+>    def main(args: Array[String]) {
+>       4 times println("hello")
+>    }
+> }
+Output:
+> Hello
+> Hello
+> Hello
+> Hello
