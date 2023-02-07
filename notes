@@ -1,0 +1,38 @@
+--- Basic Syntax ---
+
+def main(args: Array[String])
+Scala program processing starts from the main() method which is a mandatory part of every Scala Program.
+
+Comments in Scala
+for multi-line comments
+> /*
+>  *
+>  */
+for single-line comments
+> //
+
+
+
+--- Variables ---
+
+var
+> var myVar : String = "Foo"
+a variable that can change value, is called mutable variable
+
+val
+> val myVal : String = "Foo"
+a variable that cannot be changed, is called immutable variable
+
+Multiple assignments
+> val (myVar1: Int, myVar2: String) = Pair(40, "Foo")
+
+Notes: ": DataType" can be elimited
+
+Variable scope
+Object fields can be defined using either var or val
+Method parameters are defined by var
+Local variables can be defined using either var or val
+
+
+
+
