@@ -114,3 +114,6 @@ Output:
 > Hello
 > Hello
 > Hello
+
+Scala has singleton objects. 
+A singleton is a class that can have only one instance, i.e., Object. It ccan be created using the keyword object instead of class keyword.
